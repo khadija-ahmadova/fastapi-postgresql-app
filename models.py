@@ -15,3 +15,11 @@ class Choices(Base):
     choice_text = Column(String, index=True)
     is_correct = Column(Boolean, default=False)
     question_id = Column(Integer, ForeignKey("questions.id"))
+
+class User(Base):
+    __tablename__ = 'users'
+    
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, index=True)
+    hashed_password = Column(String)
+    is_active = Column(Boolean, default=True)
